@@ -1,0 +1,10 @@
+.vscode/
+Library/
+Logs/
+obj/
+Packages/
+ProjectSettings
+Temp/
+UserSettings/
+AR_TEST.sln
+Assembly-CSharp.csproj
