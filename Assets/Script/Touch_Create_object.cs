@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-public class Touch : MonoBehaviour
+public class Touch_Create_object : MonoBehaviour
 {
     private GameObject temp;
     private ARRaycastManager raycastmanage;
