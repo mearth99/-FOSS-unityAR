@@ -12,6 +12,7 @@ public class Touch_Move_object : MonoBehaviour
 
     private bool checktouch = false;
     private GameObject touchobject;
+    private GameObject deleteobject = null;
     [SerializeField] private Camera arcamera;
 
     // Start is called before the first frame update
@@ -23,6 +24,9 @@ public class Touch_Move_object : MonoBehaviour
         temp = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         // 구의 크기를 설정합니다.
         temp.transform.localScale = Vector3.one * 0.1f;
+
+        temp.GetComponent<Renderer>().material.color = Color.white;
+       
     }
 
     // Update is called once per frame
@@ -43,6 +47,19 @@ public class Touch_Move_object : MonoBehaviour
                 {
                     touchobject = hitobject.collider.gameObject;
                     checktouch = true;
+                    if(touchobject == deleteobject)
+                    {
+                        Destroy(deleteobject);
+                        checktouch = false;
+                    }
+                    else
+                    {
+                        if(deleteobject != null)
+                            deleteobject.GetComponent<Renderer>().material.color = Color.white;
+
+                        touchobject.GetComponent<Renderer>().material.color = Color.red;
+                        deleteobject = touchobject;
+                    }
                 }
                 else
                 {
